@@ -1,7 +1,7 @@
 {
-  "hash": "d15be4adf7d86e1c0140900d7e37b804",
+  "hash": "47f8a19ffbe610b8b23aba997a4b93bf",
   "result": {
-    "markdown": "---\ntitle: \"DD\"\n---\n\n\nDmytro Dushko is professional person. Basicall bad ass.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\n![](images/9e6ce73f-1b50-4a7f-9c05-23c21f590592-02.jfif)\n\nW\n\n![]()\n\nBad as\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\\\=\\]\n",
+    "markdown": "---\ntitle: \"DD\"\n---\n\n\nDmytro Dushko is professional person. Basically bad ass.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\n![](9e6ce73f-1b50-4a7f-9c05-23c21f590592-02.jfif)\n\nW\n\n![]()\n\nBad as\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\\\=\\]\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
