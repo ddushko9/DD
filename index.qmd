@@ -2,7 +2,7 @@
 title: "DD"
 ---
 
-Dmytro Dushko is bad ass
+Dmytro Dushko is professional person. Basicall bad ass.
 
 ```{r}
 1 + 1
