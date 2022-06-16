@@ -3,13 +3,24 @@ project:
   output-dir: docs
 
 website:
-  title: "DD"
+  title: "Dmytro Dushko"
+  description: Welcome to my website
   navbar:
-    background: primary
+    background: "#FFFFFF"
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
+        text: "Home"
+      - href: research.qmd
+        text: "Research"
+      - href: work_experience.qmd
+        text: "Work experience"
+      - href: cv.qmd
+        text: "CV"
+      - href: contact.qmd
+        text: "Contact"
+      - href: research_project.qmd
+        text: "Research project"
+        
 
 format:
   html:

@@ -1,19 +1,35 @@
 ---
-title: "DD"
+title: "Dmytro Dushko’s personal website"
+
+toc: true
+number-sections: true
+css: styles.css
 ---
 
-Dmytro Dushko is professional person. Truly exceptional.
+Welcome to my website!
+
+::: {layout-ncol="2"}
+![](images/9e6ce73f-1b50-4a7f-9c05-23c21f590592-05.jfif){fig-align="left"}
+
+Dmytro Dushko is a junior researcher at the Center for Food and Land Use Research at Kyiv School of Economics. In 2020-2022 he as well studies at the MSc programme of KSE, "Economic Analysis". At KSE C4FLUR Dmytro conducts research on damages and losses in agriculture, forestry and fisheries, and analyzes changes in prices and policies in the agri-food sector. He participated in a research grant from the Applied Finance Program (RGAF), and worked in audit, where he was responsible for the full-scale annual audit of the international metallurgical and mining company in Ukraine, in particular in the sections of fraud risk, operating costs and court costs. His research interests also include measuring the effects of scale, scope, and density in the logistics sector, in particular, of Ukrzaliznytsia.
+
+::: callout-
+You can download my CV [here.]() ()
+:::
+:::
+
+::: columns
+::: {.column width="50%"}
+Interests
+:::
+
+::: {.column width="50%"}
+Education
+:::
+:::
 
 ```{r}
 1 + 1
 
 
 ```
-
-![](9e6ce73f-1b50-4a7f-9c05-23c21f590592-02.jfif)
-
-W
-
-![]()
-
-Bad as\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\]\\=\]

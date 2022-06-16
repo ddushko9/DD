@@ -1,7 +1,7 @@
 {
-  "hash": "47f8a19ffbe610b8b23aba997a4b93bf",
+  "hash": "4d7a583ed4ca62fbbfb66a6c1f9806c8",
   "result": {
-    "markdown": "---\ntitle: \"DD\"\n---\n\n\nDmytro Dushko is professional person. Basically bad ass.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n\n\n![](9e6ce73f-1b50-4a7f-9c05-23c21f590592-02.jfif)\n\nW\n\n![]()\n\nBad as\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\]\\\\=\\]\n",
+    "markdown": "---\ntitle: \"Dmytro Dushko’s personal website\"\n\ntoc: true\nnumber-sections: true\ncss: styles.css\n---\n\n\nWelcome to my website!\n\n::: {layout-ncol=\"2\"}\n![](images/9e6ce73f-1b50-4a7f-9c05-23c21f590592-05.jfif){fig-align=\"left\"}\n\nDmytro Dushko is a junior researcher at the Center for Food and Land Use Research at Kyiv School of Economics. In 2020-2022 he as well studies at the MSc programme of KSE, \"Economic Analysis\". At KSE C4FLUR Dmytro conducts research on damages and losses in agriculture, forestry and fisheries, and analyzes changes in prices and policies in the agri-food sector. He participated in a research grant from the Applied Finance Program (RGAF), and worked in audit, where he was responsible for the full-scale annual audit of the international metallurgical and mining company in Ukraine, in particular in the sections of fraud risk, operating costs and court costs. His research interests also include measuring the effects of scale, scope, and density in the logistics sector, in particular, of Ukrzaliznytsia.\n\n::: callout-\nYou can download my CV [here.]() ()\n:::\n:::\n\n::: columns\n::: {.column width=\"50%\"}\nInterests\n:::\n\n::: {.column width=\"50%\"}\nEducation\n:::\n:::\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
