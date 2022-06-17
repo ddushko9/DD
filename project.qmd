@@ -1,0 +1,357 @@
+---
+title: "bla"
+---
+
+---
+
+title: "Research project"
+
+---
+
+#Importing packages
+
+
+
+libs \<- c("leaflet", "usmap", "tidyverse", "ggmap","sf","dplyr", "leaflet.extras", "readr","gridExtra" ,"htmltools", "ggplot2", "maps","rgdal", "mapproj", "summarytools", "mapdata", "stringr", "tidytuesdayR", "janitor","Hmisc", "ggeasy","gganimate", "transformr", "patchwork")
+
+lapply(libs, require, character.only = TRUE)
+
+knitr::opts_chunk\$set(echo = TRUE)
+
+
+
+#\*\*Loading the Data\*\*
+
+
+
+\# Upload csv
+
+food_access \<- read_csv("food_access.csv")
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+di \<- describe(food_access)
+
+di
+
+\`\`\`
+
+#\*\*Data cleaning and processing\*\*
+
+US map
+
+\`\`\`{r}
+
+#\| echo: true
+
+#US map
+
+us \<- map_data('state')
+
+county \<- us_map(regions = c("county"))
+
+county1 \<- map_data("county")
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+#delete repetitions
+
+county %\>% distinct(full, county,fips, group,piece, .keep_all = TRUE) -\> county_no_dbl
+
+\`\`\`
+
+\`\`\`{r}
+
+#Merge data
+
+names(county_no_dbl)\[names(county_no_dbl) == "county"\] \<- "County"
+
+names(county_no_dbl)\[names(county_no_dbl) == "full"\] \<- "State"
+
+county_no_dbl %\>% mutate(Location = paste0(State, " ", County)) -\> county_no_dbl
+
+food_access %\>% mutate(Location = paste0(State, " ", County)) -\> food_access
+
+county_no_dbl %\>% select(x, y,fips,piece,group, Location) %\>% right_join(food_access, by = "Location") -\> df
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+#Rename variables
+
+df\$Vehicle_Access_1\_Mile \<- df\$\`Vehicle Access.1 Mile\`
+
+df\$Vehicle_Access_1\_2_Mile \<- df\$\`Vehicle Access.1/2 Mile\`
+
+df\$Vehicle_Access_10_Miles \<- df\$\`Vehicle Access.10 Miles\`
+
+df\$Vehicle_Access_20_Miles \<- df\$\`Vehicle Access.20 Miles\`
+
+df\$Housing_Data_Residing_in_Group_Quarters \<- df\$\`Housing Data.Residing in Group Quarters\`
+
+df\$Housing_Data_Total_Housing_Units \<- df\$\`Housing Data.Total Housing Units\`
+
+df\$Low_Access_Numbers_Children_1\_Mile \<- df\$\`Low Access Numbers.Children.1 Mile\`
+
+df\$Low_Access_Numbers_Children_1\_2_Mile \<- df\$\`Vehicle Access.1/2 Mile\`
+
+df\$Low_Access_Numbers_Children_10_Miles \<- df\$\`Low Access Numbers.Children.10 Miles\`
+
+df\$Low_Access_Numbers_Children_20_Miles \<- df\$\`Low Access Numbers.Children.20 Miles\`
+
+df\$Low_Access_Numbers_Low_Income_People_1\_Mile \<- df\$\`Low Access Numbers.Low Income People.1 Mile\`
+
+df\$Low_Access_Numbers_Low_Income_People_1\_2_Mile \<- df\$\`Low Access Numbers.Low Income People.1/2 Mile\`
+
+df\$Low_Access_Numbers_Low_Income_People_10_Miles \<- df\$\`Low Access Numbers.Children.10 Miles\`
+
+df\$Low_Access_Numbers_Low_Income_People_20_Miles \<- df\$\`Low Access Numbers.Children.20 Miles\`
+
+df\$Low_Access_Numbers_People_1\_Mile \<- df\$\`Vehicle Access.1 Mile\`
+
+df\$Low_Access_Numbers_People_1\_2_Mile \<- df\$\`Vehicle Access.1/2 Mile\`
+
+df\$Low_Access_Numbers_People_10_Miles \<- df\$\`Low Access Numbers.People.10 Miles\`
+
+df\$Low_Access_Numbers_People_20_Miles \<- df\$\`Low Access Numbers.People.20 Miles\`
+
+df\$Low_Access_Numbers_Seniors_1\_Mile \<- df\$\`Low Access Numbers.Seniors.1 Mile\`
+
+df\$Low_Access_Numbers_Seniors_1\_2_Mile \<- df\$\`Low Access Numbers.Seniors.1/2 Mile\`
+
+df\$Low_Access_Numbers_Seniors_10_Miles \<- df\$\`Low Access Numbers.Seniors.10 Miles\`
+
+df\$Low_Access_Numbers_Seniors_20_Miles \<- df\$\`Low Access Numbers.Seniors.20 Miles\`
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+\# Creating new data set and ordering by state
+
+df1 \<- df %\>% select(State, fips,Population,Low_Access_Numbers_Low_Income_People_1\_2_Mile,Low_Access_Numbers_People_1\_Mile, Vehicle_Access_1\_Mile,Vehicle_Access_1\_2_Mile,Housing_Data_Residing_in_Group_Quarters,
+
+Housing_Data_Total_Housing_Units,Vehicle_Access_10_Miles,Vehicle_Access_20_Miles,Low_Access_Numbers_Children_1\_Mile,Low_Access_Numbers_Children_1\_2_Mile,Low_Access_Numbers_Low_Income_People_10_Miles,
+
+Low_Access_Numbers_Low_Income_People_20_Miles,Low_Access_Numbers_Children_10_Miles,Low_Access_Numbers_Children_20_Miles,Low_Access_Numbers_Low_Income_People_1\_Mile,
+
+Low_Access_Numbers_People_1\_2_Mile,Low_Access_Numbers_People_1\_2_Mile,Low_Access_Numbers_People_10_Miles,Low_Access_Numbers_People_20_Miles,
+
+Low_Access_Numbers_Seniors_1\_Mile,Low_Access_Numbers_Seniors_1\_2_Mile,Low_Access_Numbers_Seniors_10_Miles,Low_Access_Numbers_Seniors_20_Miles,Location)
+
+df1 = df1\[order(df1\$State), \]
+
+\`\`\`
+
+#\*\*Plot data\*\*
+
+\`\`\`{r}
+
+#\| echo: true
+
+#Plotting data
+
+#1.1
+
+p1 \<- plot_usmap(data = df1, values = "Vehicle_Access_1\_Mile", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,10000))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Vehicle Access.1 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+#1.2
+
+p2 \<- plot_usmap(data = df1, values = "Vehicle_Access_1\_2_Mile", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,10000))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Vehicle Access.1/2 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+p1 + p2
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+#1.3
+
+p3 \<- plot_usmap(data = df1, values = "Vehicle_Access_10_Miles", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,1500))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Vehicle Access.10 Miles") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+#1.4
+
+p4 \<- plot_usmap(data = df1, values = "Vehicle_Access_20_Miles", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,1500))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Vehicle Access.20 Miles") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+p3 + p4
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+#5.1
+
+p5 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_1\_Mile", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,250000))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.Low Income People.1 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+#6.1
+
+p6 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_1\_2_Mile", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,250000))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.Low Income People.1/2 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+p5 + p6
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+#7.1
+
+p7 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_10_Miles", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,11490))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.Low Income People.10 Miles") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+#8.1
+
+p8 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_20_Miles", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,5918))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.Low Income People.20 Miles") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+p7 + p8
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+summary(df1\$Low_Access_Numbers_People_1\_Mile)
+
+#9.1
+
+p9 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_People_1\_Mile", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,13735))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.People.1 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+#10.1
+
+p10 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_1\_2_Mile", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,83246))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.Low Income People.1/2 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+p9 + p10
+
+\`\`\`
+
+\`\`\`{r}
+
+#\| echo: true
+
+summary(df1\$Low_Access_Numbers_People_10_Mile)
+
+#11.1
+
+p11 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_People_10_Miles", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,37500))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.People.10 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+#12.1
+
+p12 \<- plot_usmap(data = df1, values = "Low_Access_Numbers_People_20_Miles", labels=FALSE) +
+
+scale_fill_viridis_c(name = "Count", limits = c(0,17768))+
+
+easy_move_legend(to = c("right")) +
+
+labs(title = "Low Access Numbers.Low Income People.20 Mile") +
+
+theme(panel.background = element_rect(colour = "black"))
+
+p11 + p12
+
+\`\`\`

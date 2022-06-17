@@ -6,7 +6,7 @@ title: "Research project"
 ```{r setup, include=FALSE}
 
 
-libs <- c("leaflet", "usmap", "tidyverse", "ggmap","sf","dplyr", "leaflet.extras", "readr","gridExtra" ,"htmltools", "ggplot2", "maps","rgdal", "mapproj", "summarytools", "mapdata", "stringr", "tidytuesdayR", "janitor","Hmisc", "ggeasy","gganimate", "transformr",  "patchwork")
+libs <- c("leaflet", "usmap", "tidyverse", "ggmap","sf","dplyr", "leaflet.extras", "readr","gridExtra" ,"htmltools", "ggplot2", "maps","rgdal", "mapproj", "summarytools", "mapdata", "stringr", "tidytuesdayR", "janitor","Hmisc","Matplotlib", "ggeasy","gganimate", "transformr",  "patchwork")
 lapply(libs, require, character.only = TRUE)
 
 knitr::opts_chunk$set(echo = TRUE)
@@ -23,8 +23,9 @@ food_access <- read_csv("food_access.csv")
 ```
 ```{r}
 #| echo: true
-di <- describe(food_access)
-di
+
+summary(food_access)
+
 ```
 
 
@@ -105,26 +106,157 @@ df1 = df1[order(df1$State), ]
 ```
 
 
+```{r}
+#1
+hist(df1$Vehicle_Access_1_Mile, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Vehicle Access 1 Mile")
+lines(density(df1$Vehicle_Access_1_Mile), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+
+#2
+hist(df1$Vehicle_Access_1_2_Mile, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Vehicle Access 1/2 Mile")
+lines(density(df1$Vehicle_Access_1_2_Mile), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+
+#3
+hist(df1$Vehicle_Access_10_Miles, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Vehicle Access 10 Miles")
+lines(density(df1$Vehicle_Access_10_Miles), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#4
+hist(df1$Vehicle_Access_20_Miles, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Vehicle Access 20 Miles")
+lines(density(df1$Vehicle_Access_20_Miles), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#5
+hist(df1$Low_Access_Numbers_Low_Income_People_1_Mile, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers Low Income People 1 Mile")
+lines(density(df1$Low_Access_Numbers_Low_Income_People_1_Mile), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#6
+hist(df1$Low_Access_Numbers_Low_Income_People_1_2_Mile, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers Low Income People 1/2 Mile")
+lines(density(df1$Low_Access_Numbers_Low_Income_People_1_2_Mile), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#7
+hist(df1$Low_Access_Numbers_Low_Income_People_10_Miles, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers Low Income People 10 Miles")
+lines(density(df1$Low_Access_Numbers_Low_Income_People_10_Miles), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#8
+hist(df1$Low_Access_Numbers_Low_Income_People_20_Miles, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers Low Income People 20 Miles")
+lines(density(df1$Low_Access_Numbers_Low_Income_People_20_Miles), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#9
+hist(df1$Low_Access_Numbers_People_1_Mile, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers People 1 Mile")
+lines(density(df1$Low_Access_Numbers_People_1_Mile), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#10
+hist(df1$Low_Access_Numbers_People_1_2_Mile, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers People 1/2 Mile")
+lines(density(df1$Low_Access_Numbers_People_1_2_Mile), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+
+#11
+hist(df1$Low_Access_Numbers_People_10_Miles, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers People 10 Miles")
+lines(density(df1$Low_Access_Numbers_People_10_Miles), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+#12
+hist(df1$Low_Access_Numbers_People_20_Miles, # histogram
+ col="peachpuff", # column color
+ border="black",
+ prob = TRUE, # show densities instead of frequencies
+ xlab = "temp",
+ main = "Low Access Numbers People 20 Miles")
+lines(density(df1$Low_Access_Numbers_People_10_Miles), # density plot
+ lwd = 2, # thickness of line
+ col = "chocolate3")
+
+
+```
+
+
+
 #**Plot data**
 ```{r}
 #| echo: true
 #Plotting data
 #1.1
 p1 <- plot_usmap(data = df1, values = "Vehicle_Access_1_Mile", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,10000))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,10000))+
   easy_move_legend(to = c("right")) +
   labs(title = "Vehicle Access.1 Mile") +
   theme(panel.background = element_rect(colour = "black"))
 
+p1
 
 
-#1.2
+#1.2  
 p2 <- plot_usmap(data = df1, values = "Vehicle_Access_1_2_Mile", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,10000))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,10000))+
   easy_move_legend(to = c("right")) +
   labs(title = "Vehicle Access.1/2 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p2
 
 p1 + p2
 
@@ -133,17 +265,19 @@ p1 + p2
 #| echo: true
 #1.3
 p3 <- plot_usmap(data = df1, values = "Vehicle_Access_10_Miles", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,1500))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,1500))+
   easy_move_legend(to = c("right")) +
   labs(title = "Vehicle Access.10 Miles") +
   theme(panel.background = element_rect(colour = "black"))
+p3
 
 #1.4
 p4 <- plot_usmap(data = df1, values = "Vehicle_Access_20_Miles", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,1500))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,1500))+
   easy_move_legend(to = c("right")) +
   labs(title = "Vehicle Access.20 Miles") +
   theme(panel.background = element_rect(colour = "black"))
+p4
 
 p3 + p4
 
@@ -154,20 +288,20 @@ p3 + p4
 #| echo: true
 #5.1
 p5 <- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_1_Mile", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,250000))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,250000))+
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.Low Income People.1 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p5
 
 
 #6.1
 p6 <- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_1_2_Mile", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,250000))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,250000))+
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.Low Income People.1/2 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p6
 p5 + p6
 
 
@@ -181,7 +315,7 @@ p7 <- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_10_M
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.Low Income People.10 Miles") +
   theme(panel.background = element_rect(colour = "black"))
-
+p7
 
 
 #8.1
@@ -201,20 +335,20 @@ p7 + p8
 summary(df1$Low_Access_Numbers_People_1_Mile)
 #9.1
 p9 <- plot_usmap(data = df1, values = "Low_Access_Numbers_People_1_Mile", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,13735))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,13735))+
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.People.1 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p9
 
 
 #10.1
 p10 <- plot_usmap(data = df1, values = "Low_Access_Numbers_Low_Income_People_1_2_Mile", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,83246))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,83246))+
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.Low Income People.1/2 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p10
 p9 + p10
 
 
@@ -226,20 +360,20 @@ p9 + p10
 summary(df1$Low_Access_Numbers_People_10_Mile)
 #11.1
 p11 <- plot_usmap(data = df1, values = "Low_Access_Numbers_People_10_Miles", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,37500))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,37500))+
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.People.10 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p11
 
 
 #12.1
 p12 <- plot_usmap(data = df1, values = "Low_Access_Numbers_People_20_Miles", labels=FALSE) +
-  scale_fill_viridis_c(name = "Count", limits = c(0,17768))+
+  scale_fill_viridis_c(name = NULL, limits = c(0,17768))+
   easy_move_legend(to = c("right")) +
   labs(title = "Low Access Numbers.Low Income People.20 Mile") +
   theme(panel.background = element_rect(colour = "black"))
-
+p12
 p11 + p12
 
 
