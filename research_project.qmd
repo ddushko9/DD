@@ -4,7 +4,7 @@ title: "Research project"
 
 #Importing packages
 ```{r setup, include=FALSE}
-
+#| echo: true
 
 libs <- c("leaflet", "usmap", "tidyverse", "ggmap","sf","dplyr", "leaflet.extras", "readr","gridExtra" ,"htmltools", "ggplot2", "maps","rgdal", "mapproj", "summarytools", "mapdata", "stringr", "tidytuesdayR", "janitor","Hmisc","Matplotlib", "ggeasy","gganimate", "transformr",  "patchwork")
 lapply(libs, require, character.only = TRUE)

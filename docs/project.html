@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.563">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Dmytro Dushko - bla</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Dmytro Dushko</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research.html">Research</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./work_experience.html">Work experience</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cv.html">CV</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html">Contact</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./research_project.html">Research project</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">bla</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<hr>
+<p>title: “Research project”</p>
+<hr>
+<p>#Importing packages</p>
+<p>libs &lt;- c(“leaflet”, “usmap”, “tidyverse”, “ggmap”,“sf”,“dplyr”, “leaflet.extras”, “readr”,“gridExtra” ,“htmltools”, “ggplot2”, “maps”,“rgdal”, “mapproj”, “summarytools”, “mapdata”, “stringr”, “tidytuesdayR”, “janitor”,“Hmisc”, “ggeasy”,“gganimate”, “transformr”, “patchwork”)</p>
+<p>lapply(libs, require, character.only = TRUE)</p>
+<p>knitr::opts_chunk$set(echo = TRUE)</p>
+<p>#**Loading the Data**</p>
+<p># Upload csv</p>
+<p>food_access &lt;- read_csv(“food_access.csv”)</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>di &lt;- describe(food_access)</p>
+<p>di</p>
+<p>```</p>
+<p>#**Data cleaning and processing**</p>
+<p>US map</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#US map</p>
+<p>us &lt;- map_data(‘state’)</p>
+<p>county &lt;- us_map(regions = c(“county”))</p>
+<p>county1 &lt;- map_data(“county”)</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#delete repetitions</p>
+<p>county %&gt;% distinct(full, county,fips, group,piece, .keep_all = TRUE) -&gt; county_no_dbl</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#Merge data</p>
+<p>names(county_no_dbl)[names(county_no_dbl) == “county”] &lt;- “County”</p>
+<p>names(county_no_dbl)[names(county_no_dbl) == “full”] &lt;- “State”</p>
+<p>county_no_dbl %&gt;% mutate(Location = paste0(State, ” “, County)) -&gt; county_no_dbl</p>
+<p>food_access %&gt;% mutate(Location = paste0(State, ” “, County)) -&gt; food_access</p>
+<p>county_no_dbl %&gt;% select(x, y,fips,piece,group, Location) %&gt;% right_join(food_access, by = “Location”) -&gt; df</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#Rename variables</p>
+<p>df$Vehicle_Access_1_Mile &lt;- df$`Vehicle Access.1 Mile`</p>
+<p>df$Vehicle_Access_1_2_Mile &lt;- df$`Vehicle Access.1/2 Mile`</p>
+<p>df$Vehicle_Access_10_Miles &lt;- df$`Vehicle Access.10 Miles`</p>
+<p>df$Vehicle_Access_20_Miles &lt;- df$`Vehicle Access.20 Miles`</p>
+<p>df$Housing_Data_Residing_in_Group_Quarters &lt;- df$`Housing Data.Residing in Group Quarters`</p>
+<p>df$Housing_Data_Total_Housing_Units &lt;- df$`Housing Data.Total Housing Units`</p>
+<p>df$Low_Access_Numbers_Children_1_Mile &lt;- df$`Low Access Numbers.Children.1 Mile`</p>
+<p>df$Low_Access_Numbers_Children_1_2_Mile &lt;- df$`Vehicle Access.1/2 Mile`</p>
+<p>df$Low_Access_Numbers_Children_10_Miles &lt;- df$`Low Access Numbers.Children.10 Miles`</p>
+<p>df$Low_Access_Numbers_Children_20_Miles &lt;- df$`Low Access Numbers.Children.20 Miles`</p>
+<p>df$Low_Access_Numbers_Low_Income_People_1_Mile &lt;- df$`Low Access Numbers.Low Income People.1 Mile`</p>
+<p>df$Low_Access_Numbers_Low_Income_People_1_2_Mile &lt;- df$`Low Access Numbers.Low Income People.1/2 Mile`</p>
+<p>df$Low_Access_Numbers_Low_Income_People_10_Miles &lt;- df$`Low Access Numbers.Children.10 Miles`</p>
+<p>df$Low_Access_Numbers_Low_Income_People_20_Miles &lt;- df$`Low Access Numbers.Children.20 Miles`</p>
+<p>df$Low_Access_Numbers_People_1_Mile &lt;- df$`Vehicle Access.1 Mile`</p>
+<p>df$Low_Access_Numbers_People_1_2_Mile &lt;- df$`Vehicle Access.1/2 Mile`</p>
+<p>df$Low_Access_Numbers_People_10_Miles &lt;- df$`Low Access Numbers.People.10 Miles`</p>
+<p>df$Low_Access_Numbers_People_20_Miles &lt;- df$`Low Access Numbers.People.20 Miles`</p>
+<p>df$Low_Access_Numbers_Seniors_1_Mile &lt;- df$`Low Access Numbers.Seniors.1 Mile`</p>
+<p>df$Low_Access_Numbers_Seniors_1_2_Mile &lt;- df$`Low Access Numbers.Seniors.1/2 Mile`</p>
+<p>df$Low_Access_Numbers_Seniors_10_Miles &lt;- df$`Low Access Numbers.Seniors.10 Miles`</p>
+<p>df$Low_Access_Numbers_Seniors_20_Miles &lt;- df$`Low Access Numbers.Seniors.20 Miles`</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p># Creating new data set and ordering by state</p>
+<p>df1 &lt;- df %&gt;% select(State, fips,Population,Low_Access_Numbers_Low_Income_People_1_2_Mile,Low_Access_Numbers_People_1_Mile, Vehicle_Access_1_Mile,Vehicle_Access_1_2_Mile,Housing_Data_Residing_in_Group_Quarters,</p>
+<p>Housing_Data_Total_Housing_Units,Vehicle_Access_10_Miles,Vehicle_Access_20_Miles,Low_Access_Numbers_Children_1_Mile,Low_Access_Numbers_Children_1_2_Mile,Low_Access_Numbers_Low_Income_People_10_Miles,</p>
+<p>Low_Access_Numbers_Low_Income_People_20_Miles,Low_Access_Numbers_Children_10_Miles,Low_Access_Numbers_Children_20_Miles,Low_Access_Numbers_Low_Income_People_1_Mile,</p>
+<p>Low_Access_Numbers_People_1_2_Mile,Low_Access_Numbers_People_1_2_Mile,Low_Access_Numbers_People_10_Miles,Low_Access_Numbers_People_20_Miles,</p>
+<p>Low_Access_Numbers_Seniors_1_Mile,Low_Access_Numbers_Seniors_1_2_Mile,Low_Access_Numbers_Seniors_10_Miles,Low_Access_Numbers_Seniors_20_Miles,Location)</p>
+<p>df1 = df1[order(df1$State), ]</p>
+<p>```</p>
+<p>#**Plot data**</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#Plotting data</p>
+<p>#1.1</p>
+<p>p1 &lt;- plot_usmap(data = df1, values = “Vehicle_Access_1_Mile”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,10000))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Vehicle Access.1 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>#1.2</p>
+<p>p2 &lt;- plot_usmap(data = df1, values = “Vehicle_Access_1_2_Mile”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,10000))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Vehicle Access.1/2 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>p1 + p2</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#1.3</p>
+<p>p3 &lt;- plot_usmap(data = df1, values = “Vehicle_Access_10_Miles”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,1500))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Vehicle Access.10 Miles”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>#1.4</p>
+<p>p4 &lt;- plot_usmap(data = df1, values = “Vehicle_Access_20_Miles”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,1500))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Vehicle Access.20 Miles”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>p3 + p4</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#5.1</p>
+<p>p5 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_Low_Income_People_1_Mile”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,250000))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.Low Income People.1 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>#6.1</p>
+<p>p6 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_Low_Income_People_1_2_Mile”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,250000))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.Low Income People.1/2 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>p5 + p6</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>#7.1</p>
+<p>p7 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_Low_Income_People_10_Miles”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,11490))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.Low Income People.10 Miles”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>#8.1</p>
+<p>p8 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_Low_Income_People_20_Miles”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,5918))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.Low Income People.20 Miles”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>p7 + p8</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>summary(df1$Low_Access_Numbers_People_1_Mile)</p>
+<p>#9.1</p>
+<p>p9 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_People_1_Mile”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,13735))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.People.1 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>#10.1</p>
+<p>p10 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_Low_Income_People_1_2_Mile”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,83246))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.Low Income People.1/2 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>p9 + p10</p>
+<p>```</p>
+<p>```{r}</p>
+<p>#| echo: true</p>
+<p>summary(df1$Low_Access_Numbers_People_10_Mile)</p>
+<p>#11.1</p>
+<p>p11 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_People_10_Miles”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,37500))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.People.10 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>#12.1</p>
+<p>p12 &lt;- plot_usmap(data = df1, values = “Low_Access_Numbers_People_20_Miles”, labels=FALSE) +</p>
+<p>scale_fill_viridis_c(name = “Count”, limits = c(0,17768))+</p>
+<p>easy_move_legend(to = c(“right”)) +</p>
+<p>labs(title = “Low Access Numbers.Low Income People.20 Mile”) +</p>
+<p>theme(panel.background = element_rect(colour = “black”))</p>
+<p>p11 + p12</p>
+<p>```</p>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
