@@ -203,215 +203,106 @@ dbl (23): Population, Housing Data.Residing in Group Quarters, Housing Data....
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>di <span class="ot">&lt;-</span> <span class="fu">describe</span>(food_access)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>di</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(food_access)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>food_access 
-
- 25  Variables      3142  Observations
---------------------------------------------------------------------------------
-County 
-       n  missing distinct 
-    3142        0     1877 
-
-lowest : Abbeville County          Acadia Parish             Accomack County           Ada County                Adair County             
-highest: Yukon-Koyukuk Census Area Yuma County               Zapata County             Zavala County             Ziebach County           
---------------------------------------------------------------------------------
-Population 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     3090        1    98264   147347     2909     5192 
-     .25      .50      .75      .90      .95 
-   11114    25872    66780   197455   422716 
-
-lowest :      82      90     286     416     460
-highest: 3095313 3817117 4092459 5194675 9818605
---------------------------------------------------------------------------------
-State 
-       n  missing distinct 
-    3142        0       51 
-
-lowest : Alabama       Alaska        Arizona       Arkansas      California   
-highest: Virginia      Washington    West Virginia Wisconsin     Wyoming      
---------------------------------------------------------------------------------
-Housing Data.Residing in Group Quarters 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     1873        1     2541     3811     31.0     61.1 
-     .25      .50      .75      .90      .95 
-   177.0    602.0   2247.0   6189.8  10968.2 
-
-lowest :      0      1      2      3      5, highest:  57383  67373  90282 101966 171670
---------------------------------------------------------------------------------
-Housing Data.Total Housing Units 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     3008        1    37147    55254     1158     2031 
-     .25      .50      .75      .90      .95 
-    4369    10017    25829    75650   157967 
-
-lowest :      39      69     113     147     187
-highest: 1086865 1411583 1435155 1966356 3241204
---------------------------------------------------------------------------------
-Vehicle Access.1 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     1326        1    662.2    827.3     15.0     35.0 
-     .25      .50      .75      .90      .95 
-   118.0    332.0    739.8   1508.9   2510.6 
-
-lowest :     0     1     2     3     4, highest: 10112 10436 11094 11955 13735
---------------------------------------------------------------------------------
-Vehicle Access.1/2 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     1636        1     1503     2175     25.0     61.0 
-     .25      .50      .75      .90      .95 
-   180.2    481.0   1197.8   3135.3   5997.1 
-
-lowest :     0     1     2     3     4, highest: 42521 47353 47978 70754 83246
---------------------------------------------------------------------------------
-Vehicle Access.10 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0      220    0.988    31.01     44.6     0.00     0.00 
-     .25      .50      .75      .90      .95 
-    1.00    11.00    34.75    75.90   113.95 
-
-lowest :    0    1    2    3    4, highest: 1013 1408 1498 1657 1826
---------------------------------------------------------------------------------
-Vehicle Access.20 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0       88    0.405     5.16    10.02        0        0 
-     .25      .50      .75      .90      .95 
-       0        0        0        3       12 
-
-lowest :    0    1    2    3    4, highest:  683  772  914 1013 1473
---------------------------------------------------------------------------------
-Low Access Numbers.Children.1 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     2809        1     9528    12223    352.1    650.6 
-     .25      .50      .75      .90      .95 
-  1649.2   4108.0   9723.2  23622.0  37630.6 
-
-lowest :      0      9     10     47     56, highest: 170161 172470 188314 237450 250060
---------------------------------------------------------------------------------
-Low Access Numbers.Children.1/2 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     2877        1    16669    23845    468.1    880.3 
-     .25      .50      .75      .90      .95 
-  2176.5   5301.5  13327.2  36978.6  72222.5 
-
-lowest :      0      6      9     24     66, highest: 425833 500979 662285 696657 911988
---------------------------------------------------------------------------------
-Low Access Numbers.Children.10 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     1019    0.997    372.7    455.6      0.0      0.0 
-     .25      .50      .75      .90      .95 
-    34.0    210.0    524.8    882.6   1182.6 
-
-lowest :     0     1     2     3     4, highest:  6383  7723  9931 10421 11490
---------------------------------------------------------------------------------
-Low Access Numbers.Children.20 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0      294     0.53    40.76    76.49      0.0      0.0 
-     .25      .50      .75      .90      .95 
-     0.0      0.0      0.0     77.0    215.9 
-
-lowest :    0    1    2    3    4, highest: 3665 4192 4938 5255 5918
---------------------------------------------------------------------------------
-Low Access Numbers.Low Income People.1 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     2891        1    11199    12999    501.1    947.1 
-     .25      .50      .75      .90      .95 
-  2501.0   6300.5  13138.2  25689.1  36472.5 
-
-lowest :      0     14     15     16     24, highest: 207985 210598 221955 236820 260673
---------------------------------------------------------------------------------
-Low Access Numbers.Low Income People.1/2 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     2959        1    20660    27714      689     1326 
-     .25      .50      .75      .90      .95 
-    3472     8404    19186    45200    76727 
-
-lowest :       0      15      16      28      64
-highest:  539392  602198  757010  824879 1139072
---------------------------------------------------------------------------------
-Low Access Numbers.Low Income People.10 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     1309    0.997    617.7    786.2     0.00     0.00 
-     .25      .50      .75      .90      .95 
-   51.25   319.00   804.00  1487.70  2019.65 
-
-lowest :     0     1     2     3     4, highest: 12857 14645 20933 22312 24663
---------------------------------------------------------------------------------
-Low Access Numbers.Low Income People.20 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0      367    0.548    76.11    143.8      0.0      0.0 
-     .25      .50      .75      .90      .95 
-     0.0      0.0      0.0    121.9    362.9 
-
-lowest :     0     1     2     3     4, highest:  6233  8117 10569 10868 12405
---------------------------------------------------------------------------------
-Low Access Numbers.People.1 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     3056        1    39092    48946     1599     3032 
-     .25      .50      .75      .90      .95 
-    7306    17922    42035    95290   147507 
-
-lowest :      0      2     82     90    199, highest: 626813 694213 709957 854873 903299
---------------------------------------------------------------------------------
-Low Access Numbers.People.1/2 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     3063        1    68483    96485     2150     4018 
-     .25      .50      .75      .90      .95 
-    9528    22536    57185   155959   282773 
-
-lowest :      82      90     158     286     416
-highest: 1668325 2032140 2466743 2497632 3696268
---------------------------------------------------------------------------------
-Low Access Numbers.People.10 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     1945    0.997     1637     1963        0        0 
-     .25      .50      .75      .90      .95 
-     174      955     2288     3869     5005 
-
-lowest :     0     1     2     3     4, highest: 25946 31000 32705 32961 37500
---------------------------------------------------------------------------------
-Low Access Numbers.People.20 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0      513    0.562    172.5    320.8      0.0      0.0 
-     .25      .50      .75      .90      .95 
-     0.0      0.0      0.0    383.9    990.8 
-
-lowest :     0     1     2     3     4, highest: 11475 15248 16086 16096 17768
---------------------------------------------------------------------------------
-Low Access Numbers.Seniors.1 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     2623        1     5339     6383    279.0    497.1 
-     .25      .50      .75      .90      .95 
-  1194.2   2693.5   5919.8  12157.7  19516.8 
-
-lowest :      0      7     12     26     29, highest:  74057  76898  89691  91532 123489
---------------------------------------------------------------------------------
-Low Access Numbers.Seniors.1/2 Mile 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0     2734        1     9148    12339    398.1    681.1 
-     .25      .50      .75      .90      .95 
-  1556.2   3423.5   8226.8  19986.3  35894.9 
-
-lowest :     12     13     17     26     38, highest: 202167 204085 275100 319028 431862
---------------------------------------------------------------------------------
-Low Access Numbers.Seniors.10 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0      854    0.997    274.7    328.6      0.0      0.0 
-     .25      .50      .75      .90      .95 
-    28.0    165.5    388.8    674.7    863.9 
-
-lowest :    0    1    2    3    4, highest: 4200 4321 4687 5147 5801
---------------------------------------------------------------------------------
-Low Access Numbers.Seniors.20 Miles 
-       n  missing distinct     Info     Mean      Gmd      .05      .10 
-    3142        0      283    0.535    30.33    56.24      0.0      0.0 
-     .25      .50      .75      .90      .95 
-     0.0      0.0      0.0     70.0    179.9 
-
-lowest :    0    1    2    3    4, highest: 1668 1683 1796 1862 4165
---------------------------------------------------------------------------------</code></pre>
+<pre><code>    County            Population         State          
+ Length:3142        Min.   :     82   Length:3142       
+ Class :character   1st Qu.:  11114   Class :character  
+ Mode  :character   Median :  25872   Mode  :character  
+                    Mean   :  98264                     
+                    3rd Qu.:  66780                     
+                    Max.   :9818605                     
+ Housing Data.Residing in Group Quarters Housing Data.Total Housing Units
+ Min.   :     0                          Min.   :     39                 
+ 1st Qu.:   177                          1st Qu.:   4369                 
+ Median :   602                          Median :  10017                 
+ Mean   :  2541                          Mean   :  37147                 
+ 3rd Qu.:  2247                          3rd Qu.:  25829                 
+ Max.   :171670                          Max.   :3241204                 
+ Vehicle Access.1 Mile Vehicle Access.1/2 Mile Vehicle Access.10 Miles
+ Min.   :    0.0       Min.   :    0.0         Min.   :   0.00        
+ 1st Qu.:  118.0       1st Qu.:  180.2         1st Qu.:   1.00        
+ Median :  332.0       Median :  481.0         Median :  11.00        
+ Mean   :  662.2       Mean   : 1503.1         Mean   :  31.01        
+ 3rd Qu.:  739.8       3rd Qu.: 1197.8         3rd Qu.:  34.75        
+ Max.   :13735.0       Max.   :83246.0         Max.   :1826.00        
+ Vehicle Access.20 Miles Low Access Numbers.Children.1 Mile
+ Min.   :   0.00         Min.   :     0                    
+ 1st Qu.:   0.00         1st Qu.:  1649                    
+ Median :   0.00         Median :  4108                    
+ Mean   :   5.16         Mean   :  9528                    
+ 3rd Qu.:   0.00         3rd Qu.:  9723                    
+ Max.   :1473.00         Max.   :250060                    
+ Low Access Numbers.Children.1/2 Mile Low Access Numbers.Children.10 Miles
+ Min.   :     0                       Min.   :    0.0                     
+ 1st Qu.:  2176                       1st Qu.:   34.0                     
+ Median :  5302                       Median :  210.0                     
+ Mean   : 16669                       Mean   :  372.7                     
+ 3rd Qu.: 13327                       3rd Qu.:  524.8                     
+ Max.   :911988                       Max.   :11490.0                     
+ Low Access Numbers.Children.20 Miles
+ Min.   :   0.00                     
+ 1st Qu.:   0.00                     
+ Median :   0.00                     
+ Mean   :  40.76                     
+ 3rd Qu.:   0.00                     
+ Max.   :5918.00                     
+ Low Access Numbers.Low Income People.1 Mile
+ Min.   :     0                             
+ 1st Qu.:  2501                             
+ Median :  6300                             
+ Mean   : 11199                             
+ 3rd Qu.: 13138                             
+ Max.   :260673                             
+ Low Access Numbers.Low Income People.1/2 Mile
+ Min.   :      0                              
+ 1st Qu.:   3472                              
+ Median :   8404                              
+ Mean   :  20660                              
+ 3rd Qu.:  19186                              
+ Max.   :1139072                              
+ Low Access Numbers.Low Income People.10 Miles
+ Min.   :    0.00                             
+ 1st Qu.:   51.25                             
+ Median :  319.00                             
+ Mean   :  617.69                             
+ 3rd Qu.:  804.00                             
+ Max.   :24663.00                             
+ Low Access Numbers.Low Income People.20 Miles Low Access Numbers.People.1 Mile
+ Min.   :    0.00                              Min.   :     0                  
+ 1st Qu.:    0.00                              1st Qu.:  7306                  
+ Median :    0.00                              Median : 17922                  
+ Mean   :   76.11                              Mean   : 39092                  
+ 3rd Qu.:    0.00                              3rd Qu.: 42035                  
+ Max.   :12405.00                              Max.   :903299                  
+ Low Access Numbers.People.1/2 Mile Low Access Numbers.People.10 Miles
+ Min.   :     82                    Min.   :    0                     
+ 1st Qu.:   9528                    1st Qu.:  174                     
+ Median :  22536                    Median :  955                     
+ Mean   :  68483                    Mean   : 1637                     
+ 3rd Qu.:  57185                    3rd Qu.: 2288                     
+ Max.   :3696268                    Max.   :37500                     
+ Low Access Numbers.People.20 Miles Low Access Numbers.Seniors.1 Mile
+ Min.   :    0.0                    Min.   :     0                   
+ 1st Qu.:    0.0                    1st Qu.:  1194                   
+ Median :    0.0                    Median :  2694                   
+ Mean   :  172.5                    Mean   :  5339                   
+ 3rd Qu.:    0.0                    3rd Qu.:  5920                   
+ Max.   :17768.0                    Max.   :123489                   
+ Low Access Numbers.Seniors.1/2 Mile Low Access Numbers.Seniors.10 Miles
+ Min.   :    12                      Min.   :   0.0                     
+ 1st Qu.:  1556                      1st Qu.:  28.0                     
+ Median :  3424                      Median : 165.5                     
+ Mean   :  9148                      Mean   : 274.7                     
+ 3rd Qu.:  8227                      3rd Qu.: 388.8                     
+ Max.   :431862                      Max.   :5801.0                     
+ Low Access Numbers.Seniors.20 Miles
+ Min.   :   0.00                    
+ 1st Qu.:   0.00                    
+ Median :   0.00                    
+ Mean   :  30.33                    
+ 3rd Qu.:   0.00                    
+ Max.   :4165.00                    </code></pre>
 </div>
 </div>
 <p>#<strong>Data cleaning and processing</strong></p>
